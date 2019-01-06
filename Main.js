@@ -6,7 +6,6 @@ What I need to do:
 2) analyze the order, break it down to steps, send it out. - DONE
 3) monitor each step, available chefs, time for each chef, at each station - Have way.
 4) log everything
-f
 */
 
 const http = require('http');
