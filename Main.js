@@ -64,16 +64,22 @@ function newOrder (orderUrl){
     let pizza = new pizzaClass.PIZZA(toppings,staff.doughChefs);
     queue.pizza.push(pizza);
     console.log('Pizza order #'+pizza.id+' received.\nPizza toppings are: '+pizza.toppings);
-    headChef(pizza);
+    // headChef(pizza);
+    eventEmitter.emit('NewOrder',pizza);
 }
 
 //this function should manage the orders, chefs, transition between stations.
+eventEmitter.on('NewOrder',pizza=>{
+    headChef(pizza);
+});
+
 async function headChef(pizza){
+    
     if (queue.pizza.length >0){
         try {
             let thisChef = await assignChef(pizza);
         } catch (error) {
-            console.log('No free chefs. Pizza awaits in queue. Place in queue: '+ queue.pizza.indexOf(error)+1);
+            console.log('No free chefs. Pizza awaits in queue. Place in queue: '+ (queue.pizza.indexOf(error)+1));
             console.log('Remaining pizzas in queue: '+queue.pizza.length);
             if (error.id==queue.pizza[0].id){
                 console.log('the first error.id==queue.pizza[0]: '+error.id+'\n'+queue.pizza[0].id);
@@ -88,6 +94,7 @@ async function headChef(pizza){
         console.log('Head Chef reports: No more pizzas in '/*+queue.pizza.+*/+'. No other action needed'); 
     }
 }
+
 
 function assignChef  (pizza){  
         let chef = null;
