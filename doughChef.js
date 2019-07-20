@@ -1,83 +1,102 @@
-const events = require('events');
-const eventEmitter = new events.EventEmitter();
 let counter = 9000;
-const STATUS={
-    NEWORDER:'NewOrder',
-    DOUGH: 'dough',
-    CHEF:'chef',
-    TOPPINGS:'toppings',
-    OVEN:'over',
-    SERVER:'server',
-    BUSY: 'BUSY',
-    AVAILABLE: 'AVAILABLE',
-}
-
-const staff = {
-    doughChefs: [],
-    toppingsChefs:[],
-    oven:[],
-    servers:[]
-};
-
-let doughChefsArr =[];
-
-
+const {eventEmitter}=require('./pizza2.0')
 class chefs{
     constructor(station,id){
         this.station = station;
         this.id=chefs.chefID();
+        this.nextStation='dough';
     }
     static chefID (){
         return ++counter;
     }
 
-    static cook (pizza,chef,resolve){
-
-        chef.status=STATUS.BUSY;
-        pizza.status=STATUS.DOUGH;
-        let startCooking = (pizza,chef,resolve)=>{
-            setTimeout(function () {
-            chef.status=STATUS.AVAILABLE;
-            console.log('Chef '+chef.id+' finished '+chef.station+' for order: ' + pizza.id+'. Moving back to head chef.');
-            eventEmitter.emit(chef.emit,chef);
-            pizza.chefsQueue=staff.toppingsChefs;
-            resolve (pizza);
-            }.bind(this), chef.time*1000);
+    cook (pizza,time){
+        let {STATUS,eventEmitter,logToFile} = require('./stationsClass');
+        
+        logToFile('Chef #:' +this.id+' from station '+this.station+' starting to work on pizza '+pizza.id+'.');
+        console.log('Chef #:' +this.id+' from station '+this.station+' starting to work on pizza '+pizza.id+'.');
+        this.status=STATUS.BUSY;
+        pizza.status=this.status;
+        let startCooking = (pizza)=>{
+            setTimeout(async () => {
+                this.status=STATUS.AVAILABLE;
+                pizza.status=this.status;
+                logToFile('Chef '+this.id+' finished '+this.station+' for order: ' + pizza.id+'. Moving back to head chef.');
+                console.log('Chef '+this.id+' finished '+this.station+' for order: ' + pizza.id+'. Moving back to head chef.');
+                pizza.toStation=this.nextStation;
+                await eventEmitter.emit('CHEF FREE',this.id,this.station); //chef is free
+                return true;
+            }, time*1000);
         };
-        return (startCooking(pizza,chef,resolve));
+        return startCooking(pizza);
     }
+
+    
 }
 
 class doughChef extends chefs{
-    constructor (station,id){
-        super(station,id);
-        this.status = STATUS.AVAILABLE;
-        this.time=7;
-        this.emit='doughChefFree';
+    constructor (status,id){
+        super(id);
+        this.status = status;
+        this.time = 7;
+        this.emit = 'doughChefFinish'+this.id;
+        this.station='dough';
+        this.pizza;
+        this.nextStation = 'toppings';
     }
     
-    cook (pizza, chef,resolve){
-        chefs.cook(pizza, chef,resolve);
+    cook (){
+        return super.cook(this.pizza,this.time);
     }
 }
 
 class toppingsChef extends chefs{
-    constructor (station,id){
-        super(station,id);
-        this.status = STATUS.AVAILABLE;
+    constructor (status,id){
+        super(id);
+        this.status = status;
         this.time=4;
-        this.emit='toppingsChefFree';
+        this.emit='toppingsChefFinish'+this.id;
+        this.station = 'toppings';
+        this.nextStation = 'oven';
+        this.toppingsPerChef=2;
+        this.pizza;
     }    
-    cook (pizza, chef,resolve){
-        super.cook(pizza, chef,resolve);
+    cook (){
+        let time = this.pizza.toppings.length>0 ? Math.ceil(this.pizza.toppings.length/2)*this.time : 0;
+        return super.cook(this.pizza,time);       
     }
 }
 
 class oven extends chefs{
-    constructor(station,name,id){
-        super(station,id);
+    constructor (name,id,status){
+        super(id);
         this.name=name;
-        this.status = STATUS.AVAILABLE;
+        this.status = status;
+        this.station = 'oven';
+        this.emit='ovenFinish'+this.id;
+        this.time=10;
+        this.nextStation = 'servers';
+        this.pizza;
+    }
+    cook (){
+        return super.cook(this.pizza,this.time);
     }
 }
-module.exports = {doughChef,toppingsChef,oven,eventEmitter,STATUS,staff}
+
+class servers extends chefs{
+    constructor(status,id){
+    super(id);
+    this.time=5;
+    this.emit = 'serverFinish'+this.id;
+    this.status=status;
+    this.station='servers';
+    this.nextStation = 'DONE';
+    this.pizza;
+    }
+
+    cook (){
+        return super.cook(this.pizza,this.time);
+    }
+}
+
+module.exports = {chefs,doughChef,toppingsChef,oven,servers}
