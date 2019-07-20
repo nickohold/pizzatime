@@ -1,5 +1,5 @@
 var pizzaCounter =0;
-
+//FIX ME!! GODDAMN GIT
 class PIZZA {
     constructor(toppings,queue){
         this.id = PIZZA.pizzaIdSetter();
