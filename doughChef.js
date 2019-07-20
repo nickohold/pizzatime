@@ -96,24 +96,6 @@ class servers extends chefs{
     }
 
     cook (){
-        // let time = this.pizza.toppings.length;
-        return super.cook(this.pizza,this.time);
-    }
-
-}
-
-class servers extends chefs{
-    constructor(status,id){
-    super(id);
-    this.time=5;
-    this.emit = 'serverFinish'+this.id;
-    this.status=status;
-    this.station='servers';
-    this.nextStation = 'DONE';
-    this.pizza;
-    }
-
-    cook (){
         return super.cook(this.pizza,this.time);
     }
 }
