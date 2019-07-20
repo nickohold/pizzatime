@@ -1,16 +1,17 @@
 var pizzaCounter =0;
 //FIX ME!! GODDAMN GIT
 class PIZZA {
-    constructor(toppings,queue){
+    constructor(toppings,station='dough'){
         this.id = PIZZA.pizzaIdSetter();
         this.toppings = toppings;
-        this.status = 'NewOrder'
-        this.chefsQueue=queue;
+        this.status = 'new'
+        this.toStation=station;
+        this.resolve;
     }
 
     static pizzaIdSetter(){
         if (pizzaCounter===0) {
-            pizzaCounter = 10001;
+            pizzaCounter = 1;
             return pizzaCounter;
         } else {
             return ++pizzaCounter;
