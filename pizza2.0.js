@@ -12,6 +12,7 @@ const pizzaOrders = [
 
 function start (orders){
     let result;
+
     try{
         for(let pizza of orders){
             logToFile('Pizza ' + pizza.id + ' received at head chef. Starting process.');

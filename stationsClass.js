@@ -1,3 +1,4 @@
+
 const winston = require('winston');
 const logger = winston.createLogger({
     level: 'info',
@@ -54,5 +55,4 @@ class manager{
         chef.pizza.toStation=chef.nextStation;
     }
 }
-
 module.exports={manager,STATUS,eventEmitter,logToFile};
