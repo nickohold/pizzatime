@@ -1,5 +1,5 @@
 const fs = require('fs');
-const {manager,STATUS,eventEmitter,logToFile} = require('./stationsClass');
+const {manager,STATUS,eventEmitter,logToFile} = require('./managerClass');
 const activeManager = new manager();
 const pizzaClass = require('./pizzaClass');
 const pizzaOrders = [

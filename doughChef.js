@@ -11,7 +11,7 @@ class chefs{
     }
 
     cook (pizza,time){
-        let {STATUS,eventEmitter,logToFile} = require('./stationsClass');
+        let {STATUS,eventEmitter,logToFile} = require('./managerClass');
         
         logToFile('Chef #:' +this.id+' from station '+this.station+' starting to work on pizza '+pizza.id+'.');
         console.log('Chef #:' +this.id+' from station '+this.station+' starting to work on pizza '+pizza.id+'.');
@@ -66,23 +66,6 @@ class toppingsChef extends chefs{
         let time = this.pizza.toppings.length>0 ? Math.ceil(this.pizza.toppings.length/2)*this.time : 0;
         return super.cook(this.pizza,time);       
     }
-
-
-
-        // if(tempPizza.length>0){
-        //     for (let toppings=0; toppings<pizza.length;){
-        //         tempPizza.slice(0,1);
-        //         toppings+=2;
-        //         this.cook(tempPizza,resolve);
-        //         logMsg= ('Chef '+this.id+' finished adding the following toppings:\n    1) '+tempPizza[0]);
-        //         if (tempPizza[1].length>0){
-        //             logMsg+='\n    2) '+tempPizza[1]+'.';
-        //         }
-        //     }
-        // }else{
-        //     logMsg = ('Chef '+this.id+' reports pizza '+pizza.id+' has no toppings. Moving on to Oven');
-        //     resolve(pizza); //shouldn't be resolve 
-        // }
 }
 
 class oven extends chefs{
