@@ -1,4 +1,4 @@
-const winston = require('winston');
+ const winston = require('winston');
 // const fs = require('fs');
 // fs.truncate('./orders.log',0,function(){console.log('orders.log reset.\n')})
 const logger = winston.createLogger({
@@ -15,6 +15,7 @@ const logger = winston.createLogger({
   ]
 });
 const logToConsole = logger.transports[0];
+//spdfjl;ksjdflkjsdkl
 const logToFile = logger.info;
 const chefs = require('./doughChef');
 const events = require('events');
