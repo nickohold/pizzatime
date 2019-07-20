@@ -1,0 +1,32 @@
+2019-07-20 20:00:39: Pizza 1 received at head chef. Starting process.
+2019-07-20 20:00:39: pizza order: 1 moving to dough station.
+2019-07-20 20:00:39: Chef #:9001 from station dough starting to work on pizza 1.
+2019-07-20 20:00:39: Pizza 2 received at head chef. Starting process.
+2019-07-20 20:00:39: pizza order: 2 moving to dough station.
+2019-07-20 20:00:39: Chef #:9002 from station dough starting to work on pizza 2.
+2019-07-20 20:00:39: Pizza 3 received at head chef. Starting process.
+2019-07-20 20:00:39: pizza 3 was put in dough queue.
+2019-07-20 20:00:46: Chef 9001 finished dough for order: 1. Moving back to head chef.
+2019-07-20 20:00:46: pizza order: 1 moving to toppings station.
+2019-07-20 20:00:46: Chef #:9003 from station toppings starting to work on pizza 1.
+2019-07-20 20:00:46: Chef 9002 finished dough for order: 2. Moving back to head chef.
+2019-07-20 20:00:46: pizza order: 2 moving to toppings station.
+2019-07-20 20:00:46: Chef #:9004 from station toppings starting to work on pizza 2.
+2019-07-20 20:00:50: Chef 9003 finished toppings for order: 1. Moving back to head chef.
+2019-07-20 20:00:50: pizza order: 3 moving to dough station.
+2019-07-20 20:00:50: Chef #:9001 from station dough starting to work on pizza 3.
+2019-07-20 20:00:54: Chef 9004 finished toppings for order: 2. Moving back to head chef.
+2019-07-20 20:00:54: pizza order: 1 moving to oven station.
+2019-07-20 20:00:54: Chef #:9006 from station oven starting to work on pizza 1.
+2019-07-20 20:00:57: Chef 9001 finished dough for order: 3. Moving back to head chef.
+2019-07-20 20:00:57: pizza 2 was put in oven queue.
+2019-07-20 20:01:04: Chef 9006 finished oven for order: 1. Moving back to head chef.
+2019-07-20 20:01:04: pizza order: 1 moving to servers station.
+2019-07-20 20:01:04: Chef #:9007 from station servers starting to work on pizza 1.
+2019-07-20 20:01:09: Chef 9007 finished servers for order: 1. Moving back to head chef.
+2019-07-20 20:01:09: pizza order: 2 moving to oven station.
+2019-07-20 20:01:09: Chef #:9006 from station oven starting to work on pizza 2.
+2019-07-20 20:01:19: Chef 9006 finished oven for order: 2. Moving back to head chef.
+2019-07-20 20:01:19: pizza order: 3 moving to toppings station.
+2019-07-20 20:01:19: Chef #:9003 from station toppings starting to work on pizza 3.
+2019-07-20 20:01:19: Chef 9003 finished toppings for order: 3. Moving back to head chef.
