@@ -1,4 +1,3 @@
-
 const winston = require('winston');
 const logger = winston.createLogger({
     level: 'info',
@@ -13,7 +12,6 @@ const logger = winston.createLogger({
     new winston.transports.Console({level:'info'})
   ]
 });
-const logToConsole = logger.transports[0];
 const logToFile = logger.info;
 const chefs = require('./doughChef');
 const events = require('events');
