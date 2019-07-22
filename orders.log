@@ -1,0 +1,72 @@
+2019-07-21 02:09:08: Pizza 1 received at head chef. Starting process.
+2019-07-21 02:09:08: Pizza #1 moving to dough station.
+2019-07-21 02:09:08: Chef #:9001 from station dough starting to work on pizza 1.
+2019-07-21 02:09:08: Pizza 2 received at head chef. Starting process.
+2019-07-21 02:09:08: Pizza #2 moving to dough station.
+2019-07-21 02:09:08: Chef #:9002 from station dough starting to work on pizza 2.
+2019-07-21 02:09:08: Pizza 3 received at head chef. Starting process.
+2019-07-21 02:09:08: No free dough. Pizza #3 was put in dough queue.
+2019-07-21 02:09:08: Pizza 4 received at head chef. Starting process.
+2019-07-21 02:09:08: No free dough. Pizza #4 was put in dough queue.
+2019-07-21 02:09:08: Pizza 5 received at head chef. Starting process.
+2019-07-21 02:09:08: No free dough. Pizza #5 was put in dough queue.
+2019-07-21 02:09:15: Chef 9001 finished dough for order: 1. Moving back to head chef.
+2019-07-21 02:09:15: Pizza #1 pulled from toppings queue and going to that station.
+2019-07-21 02:09:15: Chef #:9001 from station dough starting to work on pizza 3.
+2019-07-21 02:09:15: Pizza #1 moving to toppings station.
+2019-07-21 02:09:15: Chef #:9003 from station toppings starting to work on pizza 1.
+2019-07-21 02:09:15: Chef 9002 finished dough for order: 2. Moving back to head chef.
+2019-07-21 02:09:15: Pizza #2 pulled from toppings queue and going to that station.
+2019-07-21 02:09:15: Chef #:9002 from station dough starting to work on pizza 4.
+2019-07-21 02:09:15: Pizza #2 moving to toppings station.
+2019-07-21 02:09:15: Chef #:9004 from station toppings starting to work on pizza 2.
+2019-07-21 02:09:19: Chef 9003 finished toppings for order: 1. Moving back to head chef.
+2019-07-21 02:09:19: Pizza #1 moving to oven station.
+2019-07-21 02:09:19: Chef #:9006 from station oven starting to work on pizza 1.
+2019-07-21 02:09:22: Chef 9001 finished dough for order: 3. Moving back to head chef.
+2019-07-21 02:09:22: Pizza #3 pulled from toppings queue and going to that station.
+2019-07-21 02:09:22: Chef #:9001 from station dough starting to work on pizza 5.
+2019-07-21 02:09:22: Pizza #3 moving to toppings station.
+2019-07-21 02:09:22: Chef #:9003 from station toppings starting to work on pizza 3.
+2019-07-21 02:09:22: Chef 9002 finished dough for order: 4. Moving back to head chef.
+2019-07-21 02:09:22: Pizza #4 moving to toppings station.
+2019-07-21 02:09:22: Chef #:9005 from station toppings starting to work on pizza 4.
+2019-07-21 02:09:22: Chef 9003 finished toppings for order: 3. Moving back to head chef.
+2019-07-21 02:09:22: No free oven. Pizza #3 was put in oven queue.
+2019-07-21 02:09:23: Chef 9004 finished toppings for order: 2. Moving back to head chef.
+2019-07-21 02:09:23: No free oven. Pizza #2 was put in oven queue.
+2019-07-21 02:09:29: Chef 9006 finished oven for order: 1. Moving back to head chef.
+2019-07-21 02:09:29: Pizza #1 pulled from servers queue and going to that station.
+2019-07-21 02:09:29: Chef #:9006 from station oven starting to work on pizza 3.
+2019-07-21 02:09:29: Pizza #1 moving to servers station.
+2019-07-21 02:09:29: Chef #:9007 from station servers starting to work on pizza 1.
+2019-07-21 02:09:29: Chef 9001 finished dough for order: 5. Moving back to head chef.
+2019-07-21 02:09:29: Pizza #5 moving to toppings station.
+2019-07-21 02:09:29: Chef #:9003 from station toppings starting to work on pizza 5.
+2019-07-21 02:09:30: Chef 9005 finished toppings for order: 4. Moving back to head chef.
+2019-07-21 02:09:30: No free oven. Pizza #4 was put in oven queue.
+2019-07-21 02:09:34: Chef 9007 finished servers for order: 1. Moving back to head chef.
+2019-07-21 02:09:37: Chef 9003 finished toppings for order: 5. Moving back to head chef.
+2019-07-21 02:09:37: No free oven. Pizza #5 was put in oven queue.
+2019-07-21 02:09:39: Chef 9006 finished oven for order: 3. Moving back to head chef.
+2019-07-21 02:09:39: Pizza #3 pulled from servers queue and going to that station.
+2019-07-21 02:09:39: Chef #:9006 from station oven starting to work on pizza 2.
+2019-07-21 02:09:39: Pizza #3 moving to servers station.
+2019-07-21 02:09:39: Chef #:9007 from station servers starting to work on pizza 3.
+2019-07-21 02:09:44: Chef 9007 finished servers for order: 3. Moving back to head chef.
+2019-07-21 02:09:49: Chef 9006 finished oven for order: 2. Moving back to head chef.
+2019-07-21 02:09:49: Pizza #2 pulled from servers queue and going to that station.
+2019-07-21 02:09:49: Chef #:9006 from station oven starting to work on pizza 4.
+2019-07-21 02:09:49: Pizza #2 moving to servers station.
+2019-07-21 02:09:49: Chef #:9007 from station servers starting to work on pizza 2.
+2019-07-21 02:09:54: Chef 9007 finished servers for order: 2. Moving back to head chef.
+2019-07-21 02:09:59: Chef 9006 finished oven for order: 4. Moving back to head chef.
+2019-07-21 02:09:59: Pizza #4 pulled from servers queue and going to that station.
+2019-07-21 02:09:59: Chef #:9006 from station oven starting to work on pizza 5.
+2019-07-21 02:09:59: Pizza #4 moving to servers station.
+2019-07-21 02:09:59: Chef #:9007 from station servers starting to work on pizza 4.
+2019-07-21 02:10:04: Chef 9007 finished servers for order: 4. Moving back to head chef.
+2019-07-21 02:10:09: Chef 9006 finished oven for order: 5. Moving back to head chef.
+2019-07-21 02:10:09: Pizza #5 moving to servers station.
+2019-07-21 02:10:09: Chef #:9007 from station servers starting to work on pizza 5.
+2019-07-21 02:10:14: Chef 9007 finished servers for order: 5. Moving back to head chef.
