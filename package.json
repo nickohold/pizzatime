@@ -1,0 +1,31 @@
+{
+  "name": "pizza_ordering_sys",
+  "version": "1.0.1",
+  "description": "This is an asynchronous pizza ordering system management between stations. Was created as a learning project",
+  "main": "pizza2.0.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mochanpm "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickohold/pizzatime.git"
+  },
+  "keywords": [
+    "pizza"
+  ],
+  "author": "Nick.Holden",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/nickohold/pizzatime/issues"
+  },
+  "homepage": "https://github.com/nickohold/pizzatime#readme",
+  "dependencies": {
+    "chai": "^4.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.0"
+  }
+}

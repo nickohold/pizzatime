@@ -6,6 +6,12 @@ const pizzaOrders = [
     new pizzaClass.PIZZA(['cheese','bacon']),
     new pizzaClass.PIZZA(['pepperoni','goat cheese','Pineapple']),
     new pizzaClass.PIZZA([]),
+    new pizzaClass.PIZZA([]),
+    new pizzaClass.PIZZA(['Pepperoni', 'tomatoes', 'mushrooms','onion']),
+    new pizzaClass.PIZZA(['BBQ sauce', 'grilled chicken','cheddar cheese']),
+    new pizzaClass.PIZZA(['cheese','bacon']),
+    new pizzaClass.PIZZA(['pepperoni','goat cheese','Pineapple']),
+    new pizzaClass.PIZZA([]),
     new pizzaClass.PIZZA(['Pepperoni', 'tomatoes', 'mushrooms','onion']),
     new pizzaClass.PIZZA(['BBQ sauce', 'grilled chicken','cheddar cheese']),
 ];
@@ -15,14 +21,14 @@ function start (orders){
 
     try{
         for(let pizza of orders){
-            logToFile('Pizza ' + pizza.id + ' received at head chef. Starting process.');
-            console.log('Pizza ' + pizza.id + ' received at head chef. Starting process.');
-            let thisOrder = new Promise((resolve)=>{
+            logToFile('Pizza #' + pizza.id + ' received at head chef. Starting process.');
+            console.log('Pizza #' + pizza.id + ' received at head chef. Starting process.');
+            // let thisOrder = new Promise((resolve)=>{
                 activeManager.queue.push(pizza);
-                pizza.resolve=resolve;
+                // pizza.resolve=resolve;
                 nextStation(pizza);
-            });
-            result = thisOrder;
+            // });
+            // result = thisOrder;
         }
     }catch(e){
         console.log("Error is: "+e);
@@ -46,13 +52,14 @@ function nextStation(pizza){
     if (!chefFound){
         putInQueue(activeManager.stations[pizza.toStation].queue, pizza);
         logToFile('No free '+pizza.toStation+'. Pizza #'+pizza.id+' was put in '+pizza.toStation+' queue.');
-        console.log('No free '+pizza.toStation+'. pizza #'+pizza.id+' was put in '+pizza.toStation+' queue.');
+        console.log('No free '+pizza.toStation+'. Pizza #'+pizza.id+' was put in '+pizza.toStation+' queue.');
     }else{
         logToFile('Pizza #'+pizza.id+' moving to '+pizza.toStation+ ' station.');
         console.log('Pizza #'+pizza.id+' moving to '+pizza.toStation+ ' station.');
         chefFound.pizza=pizza;
         chefFound.cook();
     }
+    return(typeof chefFound!='boolean');
 }
 
 function putInQueue (queue,pizza){
@@ -63,10 +70,10 @@ function checkStationQueue(station){
 }
 
 (async()=>{
+    let result;
     await fs.truncate('./orders.log',0,function(){
         console.log('orders.log reset.\n')
-        let result = start(pizzaOrders);
-
+        result = start(pizzaOrders);
     });
     await logToFile(result);
 })();
@@ -93,4 +100,4 @@ eventEmitter.on('CHEF FREE',(id,station)=>{
     }
 });
 
-module.exports={eventEmitter,logToFile}
+module.exports={}

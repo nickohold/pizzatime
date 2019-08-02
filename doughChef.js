@@ -1,5 +1,8 @@
 let counter = 9000;
-const {eventEmitter}=require('./pizza2.0')
+const capitalized = (string)=>{
+    return string.charAt(0).toUpperCase() + string.slice(1)
+};
+// const {eventEmitter}=require('./pizza2.0')
 class chefs{
     constructor(station,id){
         this.station = station;
@@ -12,26 +15,23 @@ class chefs{
 
     cook (pizza,time){
         let {STATUS,eventEmitter,logToFile} = require('./managerClass');
-        
-        logToFile('Chef #:' +this.id+' from station '+this.station+' starting to work on pizza '+pizza.id+'.');
-        console.log('Chef #:' +this.id+' from station '+this.station+' starting to work on pizza '+pizza.id+'.');
+        logToFile(capitalized(this.station)+' chef #' +this.id+' from station '+this.station+' starting to work on pizza #'+pizza.id+'.');
+        console.log(capitalized(this.station)+' chef #' +this.id+' from station '+this.station+' starting to work on pizza #'+pizza.id+'.');
         this.status=STATUS.BUSY;
         pizza.status=this.status;
         let startCooking = (pizza)=>{
             setTimeout(async () => {
                 this.status=STATUS.AVAILABLE;
                 pizza.status=this.status;
-                logToFile('Chef '+this.id+' finished '+this.station+' for order: ' + pizza.id+'. Moving back to head chef.');
-                console.log('Chef '+this.id+' finished '+this.station+' for order: ' + pizza.id+'. Moving back to head chef.');
+                logToFile(capitalized(this.station)+' chef '+this.id+' finished '+this.station+' for pizza #' + pizza.id+'. Moving to next station.');
+                console.log(capitalized(this.station)+' chef '+this.id+' finished '+this.station+' for pizza #' + pizza.id+'. Moving to next station.');
                 pizza.toStation=this.nextStation;
                 await eventEmitter.emit('CHEF FREE',this.id,this.station); //chef is free
                 return true;
             }, time*1000);
         };
         return startCooking(pizza);
-    }
-
-    
+    }    
 }
 
 // const  {ChefFinish,...what} = 'doughChefFinish'
