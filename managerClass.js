@@ -16,7 +16,7 @@ const logToFile = logger.info;
 const chefs = require('./doughChef');
 const events = require('events');
 const eventEmitter = new events.EventEmitter();
-const STATUS={
+const STATUS = {
     DOUGH: 'dough',
     TOPPINGS:'toppings',
     OVEN:'oven',
@@ -41,16 +41,12 @@ class manager{
                 chefs:[new chefs.toppingsChef(STATUS.AVAILABLE),new chefs.toppingsChef(STATUS.AVAILABLE),new chefs.toppingsChef(STATUS.AVAILABLE)],
                 queue:[]},
             oven:{
-                chefs:[new chefs.oven('fred',0,STATUS.AVAILABLE)],
+                chefs:[new chefs.oven('fred',0,STATUS.AVAILABLE),new chefs.oven('frank',0,STATUS.AVAILABLE)],
                 queue:[]},
             servers:{
                 chefs:[new chefs.servers(STATUS.AVAILABLE),new chefs.doughChef(STATUS.AVAILABLE)],
                 queue:[]}
         }
-    }
-
-    assignPizza(chef){
-        chef.pizza.toStation=chef.nextStation;
     }
 }
 module.exports={manager,STATUS,eventEmitter,logToFile};

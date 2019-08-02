@@ -1,11 +1,11 @@
-var pizzaCounter =0;
-//FIX ME!! GODDAMN GIT
+var pizzaCounter = 0;
+
 class PIZZA {
-    constructor(toppings,station='dough'){
+    constructor(toppings,station = 'dough'){
         this.id = PIZZA.pizzaIdSetter();
         this.toppings = toppings;
         this.status = 'new'
-        this.toStation=station;
+        this.toStation = station;
         this.resolve;
     }
 
